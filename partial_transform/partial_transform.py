@@ -14,6 +14,9 @@ def main():
     p.add_argument('-F', '--delimiter', help='default: awk style')
     args = p.parse_args()
 
+    if args.delimiter == r'\t':
+        args.delimiter = '\t'
+
     if args.delimiter is not None and len(args.delimiter) > 1:
         print('[Error] Delimiter must be ONE character', file=sys.stderr)
         sys.exit(1)
